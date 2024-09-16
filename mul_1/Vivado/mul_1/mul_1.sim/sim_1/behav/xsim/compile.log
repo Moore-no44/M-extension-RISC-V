@@ -1,4 +1,0 @@
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/utent/Desktop/Robe per tesi/mul_1/src/mul_1.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'mul_1'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/utent/Desktop/Robe per tesi/mul_1/tb/mul_1_tb.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'mul_1_tb'
