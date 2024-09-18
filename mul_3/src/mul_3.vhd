@@ -39,7 +39,7 @@ begin
 									res <= std_logic_vector (unsigned(a) * unsigned(b));
 									o <= res(63 downto 32);
 								elsif (sign = '1') then
-									res <= std_logic_vector( ((not unsigned(a))+1) * unsigned(b));
+									res <= std_logic_vector(    (-1) * (      unsigned(a)     *    unsigned(b)    )        );
 									o <= res(63 downto 32);
 								end if; -- MULHSU
 
