@@ -34,12 +34,12 @@ begin
 								o <= res(63 downto 32); -- MULH
 
 							when "010" =>
-								sign <= b(31);
+								sign <= a(31);
 								if (sign = '0') then
-									res <= std_logic_vector(signed(a) * signed(b));
+									res <= std_logic_vector (unsigned(a) * unsigned(b));
 									o <= res(63 downto 32);
 								elsif (sign = '1') then
-									res <= std_logic_vector( signed(a) * signed( ( not unsigned(b))+1 ) );
+									res <= std_logic_vector( ((not unsigned(a))+1) * unsigned(b));
 									o <= res(63 downto 32);
 								end if; -- MULHSU
 
