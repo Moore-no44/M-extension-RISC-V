@@ -15,6 +15,7 @@ architecture bhv of mul_3 is
 
 	signal	res	: std_logic_vector(63 downto 0);
 	signal	sign	: std_logic;
+	signal	res2	: std_logic_vector(65 downto 0);
 
 begin
 	process(a, b, MUL_DIV, opcode, sel, res, sign)
@@ -39,8 +40,8 @@ begin
 									res <= std_logic_vector (unsigned(a) * unsigned(b));
 									o <= res(63 downto 32);
 								elsif (sign = '1') then
-									res <= std_logic_vector(    (-1) * (      unsigned(a)     *    unsigned(b)    )        );
-									o <= res(63 downto 32);
+									res2 <= std_logic_vector(    ("-1") * (      unsigned(a)     *    unsigned(b)    )        );
+									o <= res2(63 downto 32);
 								end if; -- MULHSU
 
 							when "011" =>
