@@ -44,75 +44,108 @@ begin
 	test: process
 	begin
 
---------------------------------------------------------------
-
-		wait for SOME_TIME;
-		sel	<= "011";
 		MUL_DIV	<= "0000001";
 		opcode	<= "0110011";
-		a	<= std_logic_vector(to_unsigned(3, 32));
-		b	<= std_logic_vector(to_unsigned(3, 32));
-
-		wait for SOME_TIME;
-		a	<= std_logic_vector(to_unsigned(2147483647, 32));
-		b	<= std_logic_vector(to_unsigned(2147483647, 32)); -- risultato diverso da zero se si eccedono 32 bit
-
 --------------------------------------------------------------
 
+		-- MULH + MUL
+		wait for SOME_TIME;
+		a	<= std_logic_vector(to_signed(5, 32));
+		b	<= std_logic_vector(to_signed(-5, 32));
+		sel	<= "001";
 		wait for SOME_TIME;
 		sel	<= "000";
-		a	<= std_logic_vector(to_signed(5, 32));
-		b	<= std_logic_vector(to_signed(-5, 32));
 
 		wait for SOME_TIME;
 		a	<= std_logic_vector(to_signed(-5, 32));
 		b	<= std_logic_vector(to_signed(-5, 32));
-
-		wait for SOME_TIME;
-		a	<= std_logic_vector(to_signed(-5, 32));
-		b	<= std_logic_vector(to_signed(5, 32));
-
-		wait for SOME_TIME;
-		a	<= std_logic_vector(to_signed(5, 32));
-		b	<= std_logic_vector(to_signed(5, 32));
-
---------------------------------------------------------------
-
-		wait for SOME_TIME;
 		sel	<= "001";
-		a	<= std_logic_vector(to_signed(5, 32));
-		b	<= std_logic_vector(to_signed(-5, 32));
-
 		wait for SOME_TIME;
-		a	<= std_logic_vector(to_signed(-5, 32));
-		b	<= std_logic_vector(to_signed(-5, 32));
+		sel	<= "000";
 
 		wait for SOME_TIME;
 		a	<= std_logic_vector(to_signed(-5, 32));
 		b	<= std_logic_vector(to_signed(5, 32));
+		sel	<= "001";
+		wait for SOME_TIME;
+		sel	<= "000";
 
 		wait for SOME_TIME;
 		a	<= std_logic_vector(to_signed(5, 32));
 		b	<= std_logic_vector(to_signed(5, 32));
+		sel	<= "001";
+		wait for SOME_TIME;
+		sel	<= "000";
 
 --------------------------------------------------------------
 
+		-- MULHU + MUL
 		wait for SOME_TIME;
+		a	<= std_logic_vector(to_unsigned(3, 32));
+		b	<= std_logic_vector(to_unsigned(3, 32));
+		sel	<= "011";
+		wait for SOME_TIME;
+		sel	<= "000";
+
+		wait for SOME_TIME;
+		a	<= "11111111111111111111111111111101";
+		b	<= "11111111111111111111111111111101";
+		sel	<= "011";
+		wait for SOME_TIME;
+		sel	<= "000";
+
+		wait for SOME_TIME;
+		a	<= std_logic_vector(to_unsigned(-3, 32));
+		b	<= std_logic_vector(to_unsigned(-3, 32));
+		sel	<= "011";
+		wait for SOME_TIME;
+		sel	<= "000";
+
+		wait for SOME_TIME;
+		a	<= "11111111111111111111111111111101";
+		b	<= "00000000000000000000000000000011";
+		sel	<= "011";
+		wait for SOME_TIME;
+		sel	<= "000";
+
+		wait for SOME_TIME;
+		a	<= std_logic_vector(to_unsigned(-3, 32));
+		b	<= std_logic_vector(to_unsigned(3, 32));
+		sel	<= "011";
+		wait for SOME_TIME;
+		sel	<= "000";
+
+
+--------------------------------------------------------------
+
+		-- MULHSU + MUL
+		wait for SOME_TIME;
+		a	<= std_logic_vector(to_signed(10, 32));
+		b	<= std_logic_vector(to_signed(10, 32));
 		sel	<= "010";
-		a	<= std_logic_vector(to_signed(5, 32));
-		b	<= std_logic_vector(to_signed(-5, 32));
+		wait for SOME_TIME;
+		sel	<= "000";
 
 		wait for SOME_TIME;
-		a	<= std_logic_vector(to_signed(-5, 32));
-		b	<= std_logic_vector(to_signed(-5, 32));
+		a	<= std_logic_vector(to_signed(10, 32));
+		b	<= std_logic_vector(to_signed(-10, 32));
+		sel	<= "010";
+		wait for SOME_TIME;
+		sel	<= "000";
 
 		wait for SOME_TIME;
-		a	<= std_logic_vector(to_signed(-5, 32));
-		b	<= std_logic_vector(to_signed(5, 32));
+		a	<= std_logic_vector(to_signed(-10, 32));
+		b	<= std_logic_vector(to_signed(10, 32));
+		sel	<= "010";
+		wait for SOME_TIME;
+		sel	<= "000";
 
 		wait for SOME_TIME;
-		a	<= std_logic_vector(to_signed(5, 32));
-		b	<= std_logic_vector(to_signed(5, 32));
+		a	<= std_logic_vector(to_signed(-10, 32));
+		b	<= std_logic_vector(to_signed(-10, 32));
+		sel	<= "010";
+		wait for SOME_TIME;
+		sel	<= "000";
 
 --------------------------------------------------------------
 	

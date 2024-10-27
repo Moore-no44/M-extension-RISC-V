@@ -35,17 +35,11 @@ begin
 								o <= res(63 downto 32); -- MULH
 
 							when "010" =>
-								sign <= a(31);
-								if (sign = '0') then
-									res <= std_logic_vector (unsigned(a) * unsigned(b));
-									o <= res(63 downto 32);
-								elsif (sign = '1') then
-									res2 <= std_logic_vector(    ("-1") * (      unsigned(a)     *    unsigned(b)    )        );
-									o <= res2(63 downto 32);
-								end if; -- MULHSU
+								res <= std_logic_vector(signed(a) * signed(unsigned(b)) );
+								o <= res(63 downto 32); -- MULHSU
 
 							when "011" =>
-								res <= std_logic_vector(unsigned(a) * unsigned(b));
+								res <= std_logic_vector(unsigned(unsigned(a)*unsigned(b)));
 								o <= res(63 downto 32); -- MULHU
 
 							when others =>
